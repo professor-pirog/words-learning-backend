@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/words_learning_backend
+    username: postgres
+    password: postgres
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/words_learning_backend
+    user: postgres
+    password: postgres
+    liquibase-schema: liquibase

@@ -1,0 +1,80 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-words-set-table
+      author: Pirog
+      changes:
+        - createTable:
+            tableName: words_set
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-word-table
+      author: Pirog
+      changes:
+        - createTable:
+            tableName: word
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: translation
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: examples
+                  type: jsonb
+  - changeSet:
+      id: create-word-word-set-link-table
+      author: Pirog
+      changes:
+        - createTable:
+            tableName: word_word_set_link
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: set_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: word_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - addForeignKeyConstraint:
+                  constraintName: fk_word_word_set_link_words_set
+                  baseTableName: word_word_set_link
+                  baseColumnNames: set_id
+                  referencedTableName: words_set
+                  referencedColumnNames: id
+              - addForeignKeyConstraint:
+                  constraintName: fk_word_word_set_link_word
+                  baseTableName: word_word_set_link
+                  baseColumnNames: word_id
+                  referencedTableName: word
+                  referencedColumnNames: id
