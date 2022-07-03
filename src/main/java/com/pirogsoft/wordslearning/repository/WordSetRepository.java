@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface WordSetRepository extends JpaRepository<WordSet, Long> {
 
-    @Query("SELECT ws FROM WordSet ws JOIN ws.words WHERE ws.id = :id")
+    @Query("SELECT ws FROM WordSet ws LEFT JOIN ws.words WHERE ws.id = :id")
     Optional<WordSet> findByIdWithWord(long id);
 }

@@ -5,16 +5,14 @@ import com.pirogsoft.wordslearning.dto.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.mapper.WordSetMapper;
 import com.pirogsoft.wordslearning.service.WordSetService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/word-sets/")
+@CrossOrigin
 @RequiredArgsConstructor
 public class WordSetController {
 
