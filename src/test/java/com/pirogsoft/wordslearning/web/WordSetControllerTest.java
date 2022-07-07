@@ -113,6 +113,22 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         Assertions.assertThat(actual.getTimestamp()).isNotNull();
     }
 
+    @Test
+    public void getEmptyWordSetTest() throws Exception {
+        WordSet savedWordSetOne = wordSetRepository.save(createWordSetOne());
+        MvcResult result = mvc.perform(MockMvcRequestBuilders.get(BASE_URL + "/" + savedWordSetOne.getId()))
+                .andExpect(
+                        MockMvcResultMatchers
+                                .status()
+                                .isOk())
+                .andReturn();
+        WordSetDetailDTO actualOne = getResponse(result, WordSetDetailDTO.class);
+        Assertions.assertThat(actualOne.getId()).isEqualTo(savedWordSetOne.getId());
+        Assertions.assertThat(actualOne.getName()).isEqualTo(WordSetOne.NAME);
+        Assertions.assertThat(actualOne.getWords()).isEmpty();
+
+    }
+
     private Optional<WordDTO> findById(Set<WordDTO> wordSet, long id) {
         return wordSet.stream().filter(wordDTO -> wordDTO.getId() == id).findAny();
     }
