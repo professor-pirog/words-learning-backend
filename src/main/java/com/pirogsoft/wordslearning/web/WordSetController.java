@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/word-sets/")
+@RequestMapping("/word-sets")
 @CrossOrigin
 @RequiredArgsConstructor
 public class WordSetController {
@@ -25,7 +25,7 @@ public class WordSetController {
         return wordSetService.getList().stream().map(wordSetMapper::mapToDTO).collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public WordSetDetailDTO get(@PathVariable long id) {
         return wordSetMapper.mapToDetailDTO(wordSetService.getById(id));
     }

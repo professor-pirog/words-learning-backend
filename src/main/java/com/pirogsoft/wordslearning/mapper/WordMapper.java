@@ -15,6 +15,7 @@ public class WordMapper {
         List<String> mappedExamples = examples != null ? new ArrayList<>(examples) : new ArrayList<>();
         return WordDTO
                 .builder()
+                .id(word.getId())
                 .name(word.getName())
                 .translation(word.getTranslation())
                 .examples(mappedExamples)
