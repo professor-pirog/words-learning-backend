@@ -19,6 +19,8 @@ public class WordMapper {
                 .name(word.getName())
                 .translation(word.getTranslation())
                 .examples(mappedExamples)
+                .createdAt(word.getCreatedAt())
+                .updatedAt(word.getUpdatedAt())
                 .build();
     }
 

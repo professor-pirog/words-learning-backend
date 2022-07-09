@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-creation-and-update-datetime
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: words_set
+            columns:
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+        - addColumn:
+            tableName: word
+            columns:
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+  - changeSet:
+      id: update-creation-and-update-datetime-column
+      author: Pirog
+      changes:
+        - sql:
+            sql: update word SET created_at = CURRENT_TIMESTAMP, updated_at=CURRENT_TIMESTAMP
+        - sql:
+            sql: update word SET created_at = CURRENT_TIMESTAMP, updated_at=CURRENT_TIMESTAMP
+  - changeSet:
+      id: add-not-null-constraint-to-create-update-fields
+      author: Pirog
+      changes:
+        - addNotNullConstraint:
+            columnName: created_at
+            tableName: words_set
+        - addNotNullConstraint:
+            columnName: updated_at
+            tableName: words_set
+        - addNotNullConstraint:
+            columnName: created_at
+            tableName: word
+        - addNotNullConstraint:
+            columnName: updated_at
+            tableName: word

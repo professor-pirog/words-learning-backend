@@ -3,6 +3,7 @@ package com.pirogsoft.wordslearning.dto;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.Instant;
 import java.util.Set;
 
 @Data
@@ -14,4 +15,8 @@ public class WordSetDetailDTO {
     private String name;
 
     private Set<WordDTO> words;
+
+    private Instant createdAt;
+
+    private Instant updatedAt;
 }

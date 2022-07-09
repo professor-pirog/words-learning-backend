@@ -2,11 +2,13 @@ package com.pirogsoft.wordslearning.model;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.time.Instant;
 import java.util.List;
 
 @Getter
@@ -29,5 +31,13 @@ public class Word {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     private List<String> examples;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Instant updatedAt;
 
 }

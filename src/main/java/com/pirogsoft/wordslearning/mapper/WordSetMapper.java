@@ -19,6 +19,8 @@ public class WordSetMapper {
                 .builder()
                 .id(wordSet.getId())
                 .name(wordSet.getName())
+                .createdAt(wordSet.getCreatedAt())
+                .updatedAt(wordSet.getUpdatedAt())
                 .build();
     }
 
@@ -28,6 +30,8 @@ public class WordSetMapper {
                 .id(wordSet.getId())
                 .name(wordSet.getName())
                 .words(wordSet.getWords().stream().map(wordMapper::mapToDTO).collect(Collectors.toSet()))
+                .createdAt(wordSet.getCreatedAt())
+                .updatedAt(wordSet.getUpdatedAt())
                 .build();
     }
 }

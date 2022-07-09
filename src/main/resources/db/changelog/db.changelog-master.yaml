@@ -2,3 +2,6 @@ databaseChangeLog:
   - include:
       file: "01-init-database.yaml"
       relativeToChangelogFile: true
+  - include:
+      file: "02-add-creation-and-update-time.yaml"
+      relativeToChangelogFile: true

@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.time.Instant;
 import java.util.*;
 
 public class WordSetControllerTest extends AbstractIntegrationTest {
@@ -54,8 +55,12 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         Assertions.assertThat(actual.size()).isEqualTo(2);
         Assertions.assertThat(actual.get(0).getName()).isEqualTo(WordSetOne.NAME);
         Assertions.assertThat(actual.get(0).getId()).isEqualTo(wordSetOne.getId());
+        Assertions.assertThat(actual.get(0).getCreatedAt()).isNotNull();
+        Assertions.assertThat(actual.get(0).getUpdatedAt()).isNotNull();
         Assertions.assertThat(actual.get(1).getName()).isEqualTo(WordSetTwo.NAME);
         Assertions.assertThat(actual.get(1).getId()).isEqualTo(wordSetTwo.getId());
+        Assertions.assertThat(actual.get(1).getCreatedAt()).isNotNull();
+        Assertions.assertThat(actual.get(1).getUpdatedAt()).isNotNull();
     }
 
     @Test
@@ -96,6 +101,8 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         Assertions.assertThat(wordOneExamples.size()).isEqualTo(2);
         Assertions.assertThat(wordOneExamples.get(0)).isEqualTo(WordOne.EXAMPLE_ONE);
         Assertions.assertThat(wordOneExamples.get(1)).isEqualTo(WordOne.EXAMPLE_TWO);
+        Assertions.assertThat(wordDTOOne.getCreatedAt()).isNotNull();
+        Assertions.assertThat(wordDTOOne.getUpdatedAt()).isNotNull();
     }
 
     @Test
@@ -125,8 +132,9 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         WordSetDetailDTO actualOne = getResponse(result, WordSetDetailDTO.class);
         Assertions.assertThat(actualOne.getId()).isEqualTo(savedWordSetOne.getId());
         Assertions.assertThat(actualOne.getName()).isEqualTo(WordSetOne.NAME);
+        Assertions.assertThat(actualOne.getCreatedAt()).isNotNull();
+        Assertions.assertThat(actualOne.getUpdatedAt()).isNotNull();
         Assertions.assertThat(actualOne.getWords()).isEmpty();
-
     }
 
     private Optional<WordDTO> findById(Set<WordDTO> wordSet, long id) {
@@ -150,6 +158,8 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         word.setName(name);
         word.setTranslation(translation);
         word.setExamples(examples);
+        word.setCreatedAt(Instant.now());
+        word.setUpdatedAt(Instant.now());
         return word;
     }
 
