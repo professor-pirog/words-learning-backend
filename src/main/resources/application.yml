@@ -11,3 +11,6 @@ spring:
     user: postgres
     password: postgres
     liquibase-schema: liquibase
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
