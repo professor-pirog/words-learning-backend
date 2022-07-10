@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-version-column-to-word-set
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: words_set
+            columns:
+              - column:
+                  name: version
+                  type: int
+  - changeSet:
+      id: set-default-value-to-word-set-version-column
+      author: Pirog
+      changes:
+        - sql:
+            sql: update words_set SET version = 0

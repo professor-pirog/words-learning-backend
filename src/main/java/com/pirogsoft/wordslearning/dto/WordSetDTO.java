@@ -9,7 +9,7 @@ import java.time.Instant;
 @Builder
 public class WordSetDTO {
 
-    private long id;
+    private Long id;
 
     private String name;
 

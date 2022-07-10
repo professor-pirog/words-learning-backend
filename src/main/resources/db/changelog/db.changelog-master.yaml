@@ -5,3 +5,6 @@ databaseChangeLog:
   - include:
       file: "02-add-creation-and-update-time.yaml"
       relativeToChangelogFile: true
+  - include:
+      file: "03-add-version-column.yaml"
+      relativeToChangelogFile: true

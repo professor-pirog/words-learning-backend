@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorType {
 
     WORD_SET_NOT_FOUND("Word set not found", HttpStatus.NOT_FOUND),
+    WORD_NOT_FOUND("Word not found", HttpStatus.NOT_FOUND),
+    WORD_IS_ALREADY_IN_SET("Word is already in set", HttpStatus.BAD_REQUEST),
     UNEXPECTED_ERROR("Unexpected error occurs", HttpStatus.INTERNAL_SERVER_ERROR),
     BAD_REQUEST("Bad request", HttpStatus.BAD_REQUEST);
 

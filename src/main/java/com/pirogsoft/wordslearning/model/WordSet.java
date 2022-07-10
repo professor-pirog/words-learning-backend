@@ -1,6 +1,7 @@
 package com.pirogsoft.wordslearning.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -35,4 +36,7 @@ public class WordSet {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Instant updatedAt;
+
+    @Version
+    private Long version;
 }

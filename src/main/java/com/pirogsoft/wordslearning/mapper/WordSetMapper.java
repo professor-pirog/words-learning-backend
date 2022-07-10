@@ -1,5 +1,6 @@
 package com.pirogsoft.wordslearning.mapper;
 
+import com.pirogsoft.wordslearning.dto.WordSetCreateOrUpdateDTO;
 import com.pirogsoft.wordslearning.dto.WordSetDTO;
 import com.pirogsoft.wordslearning.dto.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.model.WordSet;
@@ -13,6 +14,12 @@ import java.util.stream.Collectors;
 public class WordSetMapper {
 
     private final WordMapper wordMapper;
+
+    public WordSet mapToDomain(WordSetCreateOrUpdateDTO wordSetDTO) {
+        WordSet wordSet = new WordSet();
+        wordSet.setName(wordSetDTO.getName());
+        return wordSet;
+    }
 
     public WordSetDTO mapToDTO(WordSet wordSet) {
         return WordSetDTO
