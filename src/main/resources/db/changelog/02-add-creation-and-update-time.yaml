@@ -28,7 +28,7 @@ databaseChangeLog:
         - sql:
             sql: update word SET created_at = CURRENT_TIMESTAMP, updated_at=CURRENT_TIMESTAMP
         - sql:
-            sql: update word SET created_at = CURRENT_TIMESTAMP, updated_at=CURRENT_TIMESTAMP
+            sql: update words_set SET created_at = CURRENT_TIMESTAMP, updated_at=CURRENT_TIMESTAMP
   - changeSet:
       id: add-not-null-constraint-to-create-update-fields
       author: Pirog
