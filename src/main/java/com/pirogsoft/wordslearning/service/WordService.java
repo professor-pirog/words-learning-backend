@@ -37,6 +37,7 @@ public class WordService {
         oldWord.setName(word.getName());
         oldWord.setTranslation(word.getTranslation());
         oldWord.setExamples(word.getExamples());
+        oldWord.setComment(word.getComment());
         wordRepository.save(oldWord);
     }
 

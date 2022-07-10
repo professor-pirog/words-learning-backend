@@ -20,6 +20,7 @@ public class WordMapper {
                 .name(word.getName())
                 .translation(word.getTranslation())
                 .examples(mappedExamples)
+                .comment(word.getComment())
                 .createdAt(word.getCreatedAt())
                 .updatedAt(word.getUpdatedAt())
                 .build();
@@ -30,6 +31,7 @@ public class WordMapper {
         word.setTranslation(wordDTO.getTranslation());
         word.setName(wordDTO.getName());
         word.setExamples(wordDTO.getExamples());
+        word.setComment(wordDTO.getComment());
         return word;
     }
 }

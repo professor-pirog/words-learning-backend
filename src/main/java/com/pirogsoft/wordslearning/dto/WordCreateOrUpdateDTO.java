@@ -18,4 +18,6 @@ public class WordCreateOrUpdateDTO {
     private String name;
 
     private List<String> examples;
+
+    private String comment;
 }

@@ -1,7 +1,8 @@
 package com.pirogsoft.wordslearning.model;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
@@ -31,6 +32,9 @@ public class Word {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     private List<String> examples;
+
+    @Column(name = "comment")
+    private String comment;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

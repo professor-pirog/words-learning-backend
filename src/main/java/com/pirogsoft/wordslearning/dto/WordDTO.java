@@ -18,6 +18,8 @@ public class WordDTO {
 
     private List<String> examples;
 
+    private String comment;
+
     private Instant createdAt;
 
     private Instant updatedAt;

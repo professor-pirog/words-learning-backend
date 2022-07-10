@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-comment-column
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: word
+            columns:
+              - column:
+                  name: comment
+                  type: varchar
