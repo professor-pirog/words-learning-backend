@@ -29,6 +29,10 @@ public class WordSet {
             inverseJoinColumns = @JoinColumn(name = "word_id"))
     private Set<Word> words;
 
+    @Column(name = "language")
+    @Enumerated(EnumType.STRING)
+    private Language language;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private Instant createdAt;

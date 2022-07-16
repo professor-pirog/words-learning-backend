@@ -1,4 +1,4 @@
-package com.pirogsoft.wordslearning.dto;
+package com.pirogsoft.wordslearning.dto.word;
 
 import lombok.Builder;
 import lombok.Data;

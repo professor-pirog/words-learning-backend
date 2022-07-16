@@ -1,9 +1,9 @@
 package com.pirogsoft.wordslearning.web;
 
-import com.pirogsoft.wordslearning.dto.WordCreateOrUpdateDTO;
-import com.pirogsoft.wordslearning.dto.WordSetCreateOrUpdateDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDetailDTO;
+import com.pirogsoft.wordslearning.dto.word.WordCreateOrUpdateDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetCreateOrUpdateDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.mapper.WordMapper;
 import com.pirogsoft.wordslearning.mapper.WordSetMapper;
 import com.pirogsoft.wordslearning.service.WordSetService;

@@ -1,7 +1,7 @@
 package com.pirogsoft.wordslearning.mapper;
 
-import com.pirogsoft.wordslearning.dto.WordCreateOrUpdateDTO;
-import com.pirogsoft.wordslearning.dto.WordDTO;
+import com.pirogsoft.wordslearning.dto.word.WordCreateOrUpdateDTO;
+import com.pirogsoft.wordslearning.dto.word.WordDTO;
 import com.pirogsoft.wordslearning.model.Word;
 import org.springframework.stereotype.Component;
 
@@ -21,6 +21,7 @@ public class WordMapper {
                 .translation(word.getTranslation())
                 .examples(mappedExamples)
                 .comment(word.getComment())
+                .language(word.getLanguage())
                 .createdAt(word.getCreatedAt())
                 .updatedAt(word.getUpdatedAt())
                 .build();
@@ -32,6 +33,7 @@ public class WordMapper {
         word.setName(wordDTO.getName());
         word.setExamples(wordDTO.getExamples());
         word.setComment(wordDTO.getComment());
+        word.setLanguage(wordDTO.getLanguage());
         return word;
     }
 }

@@ -1,8 +1,8 @@
 package com.pirogsoft.wordslearning.web;
 
-import com.pirogsoft.wordslearning.dto.WordCreateOrUpdateDTO;
-import com.pirogsoft.wordslearning.dto.WordDTO;
-import com.pirogsoft.wordslearning.dto.WordListDTO;
+import com.pirogsoft.wordslearning.dto.word.WordCreateOrUpdateDTO;
+import com.pirogsoft.wordslearning.dto.word.WordDTO;
+import com.pirogsoft.wordslearning.dto.word.WordListDTO;
 import com.pirogsoft.wordslearning.mapper.WordMapper;
 import com.pirogsoft.wordslearning.service.WordService;
 import lombok.RequiredArgsConstructor;

@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-language-column-to-word-table
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: word
+            columns:
+              - column:
+                  name: language
+                  type: varchar(20)
+  - changeSet:
+      id: add-language-column-to-word-set-table
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: words_set
+            columns:
+              - column:
+                  name: language
+                  type: varchar(20)
+  - changeSet:
+      id: init-language-columns
+      author: Pirog
+      changes:
+        - sql:
+            sql: update word SET language = 'ENGLISH'
+        - sql:
+            sql: update words_set SET language = 'ENGLISH'
+  - changeSet:
+      id: add-not-null-constraint-to-language-columns
+      author: Pirog
+      changes:
+        - addNotNullConstraint:
+            columnName: language
+            tableName: words_set
+        - addNotNullConstraint:
+            columnName: language
+            tableName: word

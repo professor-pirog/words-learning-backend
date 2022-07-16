@@ -1,5 +1,6 @@
-package com.pirogsoft.wordslearning.dto;
+package com.pirogsoft.wordslearning.dto.word;
 
+import com.pirogsoft.wordslearning.model.Language;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,6 +20,8 @@ public class WordDTO {
     private List<String> examples;
 
     private String comment;
+
+    private Language language;
 
     private Instant createdAt;
 

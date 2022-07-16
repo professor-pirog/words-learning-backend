@@ -1,5 +1,7 @@
-package com.pirogsoft.wordslearning.dto;
+package com.pirogsoft.wordslearning.dto.wordset;
 
+import com.pirogsoft.wordslearning.dto.word.WordDTO;
+import com.pirogsoft.wordslearning.model.Language;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,6 +17,8 @@ public class WordSetDetailDTO {
     private String name;
 
     private Set<WordDTO> words;
+
+    private Language language;
 
     private Instant createdAt;
 

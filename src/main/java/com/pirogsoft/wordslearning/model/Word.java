@@ -36,6 +36,10 @@ public class Word {
     @Column(name = "comment")
     private String comment;
 
+    @Column(name = "language")
+    @Enumerated(EnumType.STRING)
+    private Language language;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private Instant createdAt;

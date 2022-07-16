@@ -1,8 +1,8 @@
 package com.pirogsoft.wordslearning.mapper;
 
-import com.pirogsoft.wordslearning.dto.WordSetCreateOrUpdateDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDetailDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetCreateOrUpdateDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.model.WordSet;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -26,6 +26,7 @@ public class WordSetMapper {
                 .builder()
                 .id(wordSet.getId())
                 .name(wordSet.getName())
+                .language(wordSet.getLanguage())
                 .createdAt(wordSet.getCreatedAt())
                 .updatedAt(wordSet.getUpdatedAt())
                 .build();
@@ -37,6 +38,7 @@ public class WordSetMapper {
                 .id(wordSet.getId())
                 .name(wordSet.getName())
                 .words(wordSet.getWords().stream().map(wordMapper::mapToDTO).collect(Collectors.toSet()))
+                .language(wordSet.getLanguage())
                 .createdAt(wordSet.getCreatedAt())
                 .updatedAt(wordSet.getUpdatedAt())
                 .build();

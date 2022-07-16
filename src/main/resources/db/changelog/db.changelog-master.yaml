@@ -9,5 +9,5 @@ databaseChangeLog:
       file: "03-add-version-column.yaml"
       relativeToChangelogFile: true
   - include:
-      file: "04-add-comment-column.yaml"
+      file: "04-add-language-columns.yaml"
       relativeToChangelogFile: true

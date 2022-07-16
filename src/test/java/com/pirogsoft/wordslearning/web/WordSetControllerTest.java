@@ -2,11 +2,11 @@ package com.pirogsoft.wordslearning.web;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.pirogsoft.wordslearning.AbstractIntegrationTest;
-import com.pirogsoft.wordslearning.dto.WordDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDTO;
-import com.pirogsoft.wordslearning.dto.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.dto.error.ErrorDTO;
 import com.pirogsoft.wordslearning.dto.error.ErrorType;
+import com.pirogsoft.wordslearning.dto.word.WordDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDTO;
+import com.pirogsoft.wordslearning.dto.wordset.WordSetDetailDTO;
 import com.pirogsoft.wordslearning.model.Word;
 import com.pirogsoft.wordslearning.model.WordSet;
 import com.pirogsoft.wordslearning.repository.WordRepository;
