@@ -18,6 +18,7 @@ public class WordSetMapper {
     public WordSet mapToDomain(WordSetCreateOrUpdateDTO wordSetDTO) {
         WordSet wordSet = new WordSet();
         wordSet.setName(wordSetDTO.getName());
+        wordSet.setLanguage(wordSetDTO.getLanguage());
         return wordSet;
     }
 
