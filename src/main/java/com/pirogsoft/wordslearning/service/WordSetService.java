@@ -41,6 +41,7 @@ public class WordSetService {
     public void updateIgnoreWords(long id, WordSet wordSet) {
         WordSet oldWordSet = getByIdWithWordsInternal(id);
         oldWordSet.setName(wordSet.getName());
+        oldWordSet.setLanguage(wordSet.getLanguage());
         wordSetRepository.save(oldWordSet);
     }
 
