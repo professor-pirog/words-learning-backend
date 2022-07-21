@@ -67,6 +67,14 @@ public class WordSetService {
         if (alreadyExists) throw new WordAlreadyInSetException(wordSetId, wordId);
     }
 
+    @Transactional
+    public void deleteWordFromWordSet(long wordSetId, long wordId) {
+        WordSet wordSet = getByIdWithWordsInternal(wordSetId);
+        Word word = wordSet.getWords().stream().filter(it -> it.getId() == wordId).findFirst().orElseThrow(); //TODO: Custom exception
+        wordSet.getWords().remove(word);
+        wordSetRepository.save(wordSet);
+    }
+
     private WordSet getByIdWithWordsInternal(long id) {
         return wordSetRepository.findByIdWithWord(id).orElseThrow(() -> new WordSetNotFoundException(id));
     }
