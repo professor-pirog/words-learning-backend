@@ -45,7 +45,7 @@ public class WordSetController {
         wordSetService.updateIgnoreWords(id, wordSetMapper.mapToDomain(wordSetDTO));
     }
 
-    @PostMapping("/{id}/word")
+    @PostMapping("/{id}/words")
     public void createWord(@PathVariable long id, @RequestBody WordCreateOrUpdateDTO word) {
         wordSetService.createAndLinkWord(id, wordMapper.mapToDomain(word));
     }
@@ -53,6 +53,11 @@ public class WordSetController {
     @PostMapping("/{id}/word-link")
     public void attachWord(@PathVariable long id, @RequestBody long wordId) {
         wordSetService.linkWord(id, wordId);
+    }
+
+    @DeleteMapping("/{id}/words/{wordId}")
+    public void deleteWordFromSet(@PathVariable long id, @PathVariable long wordId) {
+        wordSetService.deleteWordFromWordSet(id, wordId);
     }
 
     @DeleteMapping("/{id}")
