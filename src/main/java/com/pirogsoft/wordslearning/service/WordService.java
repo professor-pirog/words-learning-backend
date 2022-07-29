@@ -17,8 +17,13 @@ public class WordService {
     private final WordRepository wordRepository;
 
     @Transactional(readOnly = true)
-    public List<Word> getAll() {
-        return wordRepository.findAll(Sort.by("id"));
+    public List<Word> getAll(String name) {
+        if(name == null) {
+            return wordRepository.findAll(Sort.by("id"));
+        }else{
+            return wordRepository.findAllByNameOrderById(name);
+        }
+
     }
 
     @Transactional(readOnly = true)

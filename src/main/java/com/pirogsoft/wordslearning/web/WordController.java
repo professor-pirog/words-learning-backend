@@ -22,8 +22,8 @@ public class WordController {
     private final WordMapper wordMapper;
 
     @GetMapping
-    public WordListDTO getList() {
-        List<WordDTO> wordDTOs = wordService.getAll().stream().map(wordMapper::mapToDTO).collect(Collectors.toList());
+    public WordListDTO getList(@RequestParam(required = false) String name) {
+        List<WordDTO> wordDTOs = wordService.getAll(name).stream().map(wordMapper::mapToDTO).collect(Collectors.toList());
         return WordListDTO.builder().content(wordDTOs).build();
     }
 
