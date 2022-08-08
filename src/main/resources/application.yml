@@ -14,3 +14,13 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/auth/realms/words-learning
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
