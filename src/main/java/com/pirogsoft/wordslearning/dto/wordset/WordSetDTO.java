@@ -19,4 +19,6 @@ public class WordSetDTO {
     private Instant createdAt;
 
     private Instant updatedAt;
+
+    private int wordCount;
 }

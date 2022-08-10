@@ -7,6 +7,7 @@ import com.pirogsoft.wordslearning.dto.error.ErrorType;
 import com.pirogsoft.wordslearning.dto.word.WordDTO;
 import com.pirogsoft.wordslearning.dto.wordset.WordSetDTO;
 import com.pirogsoft.wordslearning.dto.wordset.WordSetDetailDTO;
+import com.pirogsoft.wordslearning.model.Language;
 import com.pirogsoft.wordslearning.model.Word;
 import com.pirogsoft.wordslearning.model.WordSet;
 import com.pirogsoft.wordslearning.repository.WordRepository;
@@ -41,7 +42,11 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
 
     @Test
     public void getListTest() throws Exception {
-        WordSet wordSetOne = wordSetRepository.save(createWordSetOne());
+        WordSet wordSetOne = createWordSetOne();
+        wordSetOne.setWords(new HashSet<>());
+        Word wordOne = wordRepository.save(createWordOne());
+        wordSetOne.getWords().add(wordOne);
+        wordSetOne = wordSetRepository.save(wordSetOne);
         WordSet wordSetTwo = wordSetRepository.save(createWordSetTwo());
 
         MvcResult result = mvc.perform(MockMvcRequestBuilders.get(BASE_URL))
@@ -160,44 +165,47 @@ public class WordSetControllerTest extends AbstractIntegrationTest {
         word.setExamples(examples);
         word.setCreatedAt(Instant.now());
         word.setUpdatedAt(Instant.now());
+        word.setLanguage(Language.ENGLISH);
         return word;
     }
 
     private WordSet createWordSetOne() {
         WordSet wordSet = new WordSet();
         wordSet.setName(WordSetOne.NAME);
+        wordSet.setLanguage(Language.ENGLISH);
         return wordSet;
     }
 
     private WordSet createWordSetTwo() {
         WordSet wordSet = new WordSet();
         wordSet.setName(WordSetTwo.NAME);
+        wordSet.setLanguage(Language.ENGLISH);
         return wordSet;
     }
 
-    private class WordSetOne {
+    private static class WordSetOne {
         public static String NAME = "Word set one";
     }
 
-    private class WordSetTwo {
+    private static class WordSetTwo {
         public static String NAME = "Word set one";
     }
 
-    private class WordOne {
+    private static class WordOne {
         public static String NAME = "mother";
         public static String TRANSLATION = "мать";
         public static String EXAMPLE_ONE = "My mother like apples.";
         public static String EXAMPLE_TWO = "I visit my mother once a week.";
     }
 
-    private class WordTwo {
+    private static class WordTwo {
         public static String NAME = "further";
         public static String TRANSLATION = "отец";
         public static String EXAMPLE_ONE = "My further like apples.";
         public static String EXAMPLE_TWO = "I visit my further once a week.";
     }
 
-    private class WordThree {
+    private static class WordThree {
         public static String NAME = "daughter";
         public static String TRANSLATION = "дочь";
         public static String EXAMPLE_ONE = "My daughter like apples.";
