@@ -27,7 +27,11 @@ public class WordSetController {
 
     @GetMapping
     public List<WordSetDTO> getList() {
-        return wordSetService.getAll().stream().map(wordSetMapper::mapToDTO).collect(Collectors.toList());
+        return wordSetService
+                .getAllWithWordCount()
+                .stream()
+                .map(pair -> wordSetMapper.mapToDTO(pair.getFirst(), pair.getSecond()))
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")

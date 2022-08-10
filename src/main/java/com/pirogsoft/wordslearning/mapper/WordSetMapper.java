@@ -22,12 +22,13 @@ public class WordSetMapper {
         return wordSet;
     }
 
-    public WordSetDTO mapToDTO(WordSet wordSet) {
+    public WordSetDTO mapToDTO(WordSet wordSet, int wordCount) {
         return WordSetDTO
                 .builder()
                 .id(wordSet.getId())
                 .name(wordSet.getName())
                 .language(wordSet.getLanguage())
+                .wordCount(wordCount)
                 .createdAt(wordSet.getCreatedAt())
                 .updatedAt(wordSet.getUpdatedAt())
                 .build();
