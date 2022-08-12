@@ -14,6 +14,7 @@ import com.pirogsoft.wordslearning.repository.WordRepository;
 import com.pirogsoft.wordslearning.repository.WordSetRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MvcResult;
@@ -23,6 +24,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.time.Instant;
 import java.util.*;
 
+@Disabled
 public class WordSetControllerTest extends AbstractIntegrationTest {
 
     private static final String BASE_URL = "/word-sets";

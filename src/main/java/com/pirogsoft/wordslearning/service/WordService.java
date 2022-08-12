@@ -4,7 +4,7 @@ import com.pirogsoft.wordslearning.exception.WordNotFoundException;
 import com.pirogsoft.wordslearning.model.Word;
 import com.pirogsoft.wordslearning.repository.WordRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,18 +17,17 @@ public class WordService {
     private final WordRepository wordRepository;
 
     @Transactional(readOnly = true)
-    public List<Word> getAll(String name) {
-        if(name == null) {
-            return wordRepository.findAll(Sort.by("id"));
-        }else{
-            return wordRepository.findAllByNameOrderById(name);
+    public List<Word> getAll(String name, String username) {
+        if (name == null) {
+            return wordRepository.findAllByUsernameOrderById(username);
+        } else {
+            return wordRepository.findAllByNameAndUsernameOrderById(name, username);
         }
-
     }
 
     @Transactional(readOnly = true)
-    public Word getById(long id) {
-        return getByIdInternal(id);
+    public Word getById(long id, String user) {
+        return getByIdInternal(id, user);
     }
 
     @Transactional
@@ -38,7 +37,7 @@ public class WordService {
 
     @Transactional
     public void update(long id, Word word) {
-        Word oldWord = getByIdInternal(id);
+        Word oldWord = getByIdInternal(id, word.getUsername());
         oldWord.setName(word.getName());
         oldWord.setTranslation(word.getTranslation());
         oldWord.setExamples(word.getExamples());
@@ -48,12 +47,16 @@ public class WordService {
     }
 
     @Transactional
-    public void delete(long id) {
-        if(!wordRepository.existsById(id)) throw new WordNotFoundException(id);
+    public void delete(long id, String user) {
+        getByIdInternal(id, user);
         wordRepository.deleteById(id);
     }
 
-    private Word getByIdInternal(long id) {
-        return wordRepository.findById(id).orElseThrow(() -> new WordNotFoundException(id));
+    private Word getByIdInternal(long id, String user) {
+        Word word = wordRepository.findById(id).orElseThrow(() -> new WordNotFoundException(id));
+        if (!word.getUsername().equals(user)) {
+            throw new AccessDeniedException("You don't have access to this word.");
+        }
+        return word;
     }
 }

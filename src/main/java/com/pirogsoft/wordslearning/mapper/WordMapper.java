@@ -27,13 +27,14 @@ public class WordMapper {
                 .build();
     }
 
-    public Word mapToDomain(WordCreateOrUpdateDTO wordDTO) {
+    public Word mapToDomain(WordCreateOrUpdateDTO wordDTO, String username) {
         Word word = new Word();
         word.setTranslation(wordDTO.getTranslation());
         word.setName(wordDTO.getName());
         word.setExamples(wordDTO.getExamples());
         word.setComment(wordDTO.getComment());
         word.setLanguage(wordDTO.getLanguage());
+        word.setUsername(username);
         return word;
     }
 }

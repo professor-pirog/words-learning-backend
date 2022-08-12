@@ -15,4 +15,6 @@ public interface WordSetRepository extends JpaRepository<WordSet, Long> {
 
     @Query("SELECT ws FROM WordSet ws LEFT JOIN ws.words WHERE ws.id = :id")
     Optional<WordSet> findByIdWithWord(long id);
+
+    List<WordSet> findAllByUsernameOrderById(String userName);
 }

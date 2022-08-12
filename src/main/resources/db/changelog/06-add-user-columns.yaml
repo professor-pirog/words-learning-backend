@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-username-column-to-word-table
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: word
+            columns:
+              - column:
+                  name: username
+                  type: varchar(36)
+  - changeSet:
+      id: add-username-column-to-word-set-table
+      author: Pirog
+      changes:
+        - addColumn:
+            tableName: words_set
+            columns:
+              - column:
+                  name: username
+                  type: varchar(36)
+  - changeSet:
+      id: init-username-columns
+      author: Pirog
+      changes:
+        - sql:
+            sql: update word SET username = 'd8ddac67-e13f-45d0-8531-4302ac18643a'
+        - sql:
+            sql: update words_set SET username = 'd8ddac67-e13f-45d0-8531-4302ac18643a'
+  - changeSet:
+      id: add-not-null-constraint-to-username-columns
+      author: Pirog
+      changes:
+        - addNotNullConstraint:
+            columnName: username
+            tableName: words_set
+
+        - addNotNullConstraint:
+            columnName: username
+            tableName: word

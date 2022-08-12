@@ -14,3 +14,9 @@ databaseChangeLog:
   - include:
       file: "05-add-language-columns.yaml"
       relativeToChangelogFile: true
+  - include:
+      file: "06-add-user-columns.yaml"
+      relativeToChangelogFile: true
+  - include:
+      file: "07-add-indexes.yaml"
+      relativeToChangelogFile: true

@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-username-index
+      author: Pirog
+      changes:
+        - createIndex:
+            tableName: word
+            indexName: word_username_idx
+            columns:
+              - column:
+                  name: username
+        - createIndex:
+            tableName: words_set
+            indexName: words_set_username_idx
+            columns:
+              - column:
+                  name: username
+  - changeSet:
+      id: add-language-index
+      author: Pirog
+      changes:
+        - createIndex:
+            tableName: word
+            indexName: word_language_idx
+            columns:
+              - column:
+                  name: language
+        - createIndex:
+            tableName: words_set
+            indexName: words_set_language_idx
+            columns:
+              - column:
+                  name: language
+  - changeSet:
+      id: add-word-name-index
+      author: Pirog
+      changes:
+        - createIndex:
+            tableName: word
+            indexName: word_name_idx
+            columns:
+              - column:
+                  name: name

@@ -33,6 +33,9 @@ public class WordSet {
     @Enumerated(EnumType.STRING)
     private Language language;
 
+    @Column(name = "username")
+    private String username;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private Instant createdAt;

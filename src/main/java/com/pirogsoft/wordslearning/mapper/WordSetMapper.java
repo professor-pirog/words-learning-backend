@@ -15,10 +15,11 @@ public class WordSetMapper {
 
     private final WordMapper wordMapper;
 
-    public WordSet mapToDomain(WordSetCreateOrUpdateDTO wordSetDTO) {
+    public WordSet mapToDomain(WordSetCreateOrUpdateDTO wordSetDTO, String username) {
         WordSet wordSet = new WordSet();
         wordSet.setName(wordSetDTO.getName());
         wordSet.setLanguage(wordSetDTO.getLanguage());
+        wordSet.setUsername(username);
         return wordSet;
     }
 
