@@ -13,7 +13,6 @@ import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,12 +33,11 @@ public class WordSetService {
                 .stream()
                 .collect(
                         Collectors.toMap(
-                                objects -> Long.valueOf((Integer)objects[0]),
-                                objects -> ((BigInteger) objects[1]).intValue()
+                                objects -> ((Number) objects[0]).longValue(),
+                                objects -> ((Number) objects[1]).intValue()
                         )
                 );
         return wordSetList.stream().map(wordSet -> Pair.of(wordSet, countsMap.getOrDefault(wordSet.getId(), 0))).toList();
-
     }
 
     @Transactional(readOnly = true)

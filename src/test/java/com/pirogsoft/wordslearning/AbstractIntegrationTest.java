@@ -2,7 +2,6 @@ package com.pirogsoft.wordslearning;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,10 +12,9 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import java.nio.charset.StandardCharsets;
 
-@ActiveProfiles("test")
 @AutoConfigureMockMvc
-@AutoConfigureEmbeddedDatabase
 @SpringBootTest
+@ActiveProfiles("test")
 public abstract class AbstractIntegrationTest {
 
     @Autowired

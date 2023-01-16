@@ -7,9 +7,6 @@ spring:
     username: postgres
     password: postgres
   liquibase:
-    url: jdbc:postgresql://localhost:5432/words_learning_backend
-    user: postgres
-    password: postgres
     liquibase-schema: liquibase
   mvc:
     pathmatch:
