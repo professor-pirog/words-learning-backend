@@ -13,3 +13,9 @@ Then you have to create liquibase schema:
 ```postgresql
 CREATE SCHEMA liquibase
 ```
+
+For building docker image run:
+```bash
+docker build -t pirogsoft/words-learning-backend:version .
+docker push pirogsoft/words-learning-backend:version
+```

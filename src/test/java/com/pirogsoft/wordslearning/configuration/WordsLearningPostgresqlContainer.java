@@ -13,7 +13,7 @@ public class WordsLearningPostgresqlContainer extends PostgreSQLContainer<WordsL
         super(IMAGE_VERSION);
     }
 
-    public static WordsLearningPostgresqlContainer getInstance() {
+    public synchronized static WordsLearningPostgresqlContainer getInstance() {
         if (container == null) {
             container = new WordsLearningPostgresqlContainer();
         }
